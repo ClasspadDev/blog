@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "Emulating the ClassPad with CP-Canvas"
+date:   2022-12-22 13:08:00 +0800
+tags:   programs
+---
+Recently we've been working on a project called [CP-Canvas](https://classpaddev.github.io/CP-Canvas/). This is a project that allows you to emulate functions of the ClassPad. Although it's in early development, we've already got touch and key inputs setup, and the beginning of the debug menu. Below is a screenshot of the debug menu. 
+
+![CP-Canvas](/blog/assets/2022-12-22-CP-Canvas.png){: height="350" alt="Screenshot of CP-Canvas debug menu"}
+
+Delving into the more technical side of things. We've been reverse engineering the ClassPad firmware using IDA, combined with a couple of tools running on the ClassPad itself. The first of these is a  
+<!-- https://github.com/SnailMath/CPhexEditor -->
+[Hex Editor](https://github.com/SnailMath/CPhexEditor) developed by SnailMath, which allows us to view and modify the ClassPad's memory. The second is a tool called [TarrasK](https://github.com/TheRainbowPhoenix/TarrasK) developed by TheRainbowPhoenix, providing a breakpoint manager and register dumping when the breakpoints are hit. In the image below, you can see the TarrasK window, with the ClassPad's registers and memory after a breakpoint has been hit. 
+
+![TarrasK](/blog/assets/2022-11-19-TarrasK.jpg){: height="350" alt="Screenshot of TarrasK"}
+
+We plan for this emulator to be a way to test programs on the ClassPad without having to use the actual device. Some of the SDK functions have already ported over with an example program found in [SnailMath's repository](https://github.com/SnailMath/CPappTemplate/blob/main/main.cpp) replicated in the emulator. Further down the line, a debugger may be added, which will allow you to step through your program and see what's going on. Below is an image of the test program in action.
+
+![SDK Test](/blog/assets/2022-12-22-SDKTest.png){: height="350" alt="Screenshot of SDK Test"}
+
+If you would like to learn more about this project and other projects we're working on, check out our [GitHub](https://github.com/ClasspadDev) page. We're also on [Discord](https://discord.gg/cUhTBDQZt4). We also have a page, albeit somewhat outdated, [here](https://classpaddev.github.io/) which provides an overview of some programs and other things we've made.
